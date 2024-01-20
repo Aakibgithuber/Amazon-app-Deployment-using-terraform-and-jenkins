@@ -44,3 +44,15 @@ resource "aws_instance" "web" {
     volume_size = 30
   }
 }
+resource "aws_instance" "web2" {
+  ami                    = "ami-0c7217cdde317cfec"
+  instance_type          = "t2.medium"
+  key_name               = "my key"
+  vpc_security_group_ids = [aws_security_group.Jenkins-sg.id]
+  tags = {
+    Name = "Monitering via grafana"
+  }
+  root_block_device {
+    volume_size = 30
+  }
+}
