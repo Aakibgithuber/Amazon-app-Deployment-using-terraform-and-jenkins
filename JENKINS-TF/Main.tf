@@ -1,10 +1,10 @@
 resource "aws_security_group" "Jenkins-sg" {
   name        = "Jenkins-Security Group"
-  description = "Open 22,443,80,8080,9000"
+  description = "Open 22,443,80,8080,9000,9100,9090,3000"
 
   # Define a single ingress rule to allow traffic on all specified ports
   ingress = [
-    for port in [22, 80, 443, 8080, 9000, 3000] : {
+    for port in [22, 80, 443, 8080, 9000,9100,9090,3000] : {
       description      = "TLS from VPC"
       from_port        = port
       to_port          = port
